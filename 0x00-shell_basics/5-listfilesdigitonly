@@ -1,0 +1,2 @@
+#!/bin/bash
+is -la -n numeric-uid-gid
