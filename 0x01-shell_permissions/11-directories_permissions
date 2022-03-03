@@ -1,2 +1,2 @@
 #!/bin/bassh
-chmod --reference=olleh hello
+chmod -R ugo+x */
