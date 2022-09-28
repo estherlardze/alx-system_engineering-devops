@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# installs nginx on webserver
+# changes default webpage to print "Holberton School"
+apt-get -y update
+apt-get install -y nginx
+ufw allow 'Nginx HTTP'
+#give user ownership to website files
+sudo chown -R "$USER":"$USER" /var/www/html
+sudo chmod -R 755 /var/www
+
+# Backup default index
+cp /var/www/html/index.nginx-debian.html /var/www/html/index.nginx-debian.html.bckp
+
+# Creating new index
+echo -e "Hello World!" | dd status=none of=/var/www/html/index.nginx-debian.html
+
+# restarting nginx
+sudo service nginx restart
+
+echo "Done"
